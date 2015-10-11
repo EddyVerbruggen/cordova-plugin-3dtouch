@@ -1,7 +1,153 @@
-Status: piecing together bits from this new Apple API:
+# 3D Touch Cordova plugin
+by [Eddy Verbruggen](http://twitter.com/eddyverbruggen)
 
-see https://developer.apple.com/ios/3d-touch/
+## 0. Index
 
-But I need a real 6s device to test on, which can take a while over here in NL :(
+1. [Description](#1-description)
+2. [Screenshots](#2-screenshots)
+3. [Installation](#3-installation)
+4. [Usage](#4-usage)
+5. [License](#5-license)
 
-UPDATE Oct 10 2015: I now have a 6S, woohoo! Expect updates here soon :)
+## 1. Description
+
+Add 3D Touch capabilities to your Cordova app:
+* Quick Action for Home Screen icons
+* Enable Link preview for external links
+
+## 2. Screenshots
+
+<img src="screenshots/icon-actions-2.PNG" width="235"/>&nbsp;
+<img src="screenshots/icon-actions-4.PNG" width="235"/>&nbsp;
+<img src="screenshots/link-preview.PNG" width="235"/>&nbsp;
+
+## 3. Installation
+
+Latest stable version from npm:
+```
+$ cordova plugin add cordova-plugin-3dtouch
+```
+
+Bleeding edge version from Github:
+```
+$ cordova plugin add https://github.com/EddyVerbruggen/cordova-plugin-3dtouch
+```
+
+`ThreeDeeTouch.js` is brought in automatically.
+It adds a global `ThreeDeeTouch` object which you can use to interact with the plugin.
+
+## 4. Usage
+
+Check the [demo code](demo/index.html) for all the tricks in the book!
+
+Make sure to wait for `deviceready` before using any of these functions.
+
+Note that all these functions have optional callbacks, but mostly they're irrelevant,
+except for the first function here:
+
+### isAvailable
+You need an iPhone 6S or some future tech to use the features of this plugin,
+so you can check at runtime if the user's device is supported.
+
+```js
+  ThreeDeeTouch.isAvailable(function (avail) {
+    // 'avail' is a boolean
+    alert("avail? " + avail)
+  });
+```
+
+### configureQuickActions
+When your app starts you can add those fancy Quick Actions to the Home Screen icon.
+You can configure up to four icons and they are 'cached' until you pass in a new set of icons.
+So you don't need to do this every time your app loads, but it can't really hurt.
+
+There are two types of icons supported currently" `iconType` and `iconTemplate`. The former is a fixed list
+of 'compose'/'play'/'pause'/'add'/'location'/'search'/'share' and have been provided by Apple and look great.
+The `iconTemplate` can be used to provide your own icon. It must be a valid name of an icon template in
+your Assets catalog.
+
+The `type` param is the most convenient way to relate the icon to the event you'll receiver when
+the icon was used to launch your app. So make sure it's unique amongst your icons.
+
+```js
+  ThreeDeeTouch.configureQuickActions([
+    {
+      type: 'checkin', // optional, but can be used in the onHomeIconPressed callback
+      title: 'Check in', // mandatory
+      subtitle: 'Quickly check in', // optional
+      iconType: 'compose' // optional
+    },
+    {
+      type: 'share',
+      title: 'Share',
+      subtitle: 'Share like you care',
+      iconType: 'share'
+    },
+    {
+      type: 'search',
+      title: 'Search',
+      iconType: 'search'
+    },
+    {
+      title: 'Show favorites',
+      iconTemplate: 'HeartTemplate' // from Assets catalog
+    }
+  ]);
+}
+```
+
+### onHomeIconPressed
+When a home icon is pressed, your app launches and this JS callback is invoked. I found it worked
+reliable when you use it like this (you should recognize the `type` params used previously):
+
+```js
+  document.addEventListener('deviceready', function () {
+    ThreeDeeTouch.onHomeIconPressed = function (payload) {
+      console.log("Icon pressed. Type: " + payload.type + ". Title: " + payload.title + ".");
+      if (payload.type == 'checkin') {
+        document.location = 'checkin.html';
+      } else if (payload.type == 'share') {
+        document.location = 'share.html';
+      } else {
+        // hook up any other icons you may have and do something awesome (e.g. launch the Camera UI, then share the image to Twitter)
+        console.log(JSON.stringify(payload));
+      }
+    }
+  }, false);
+```
+
+### enableLinkPreview
+UIWebView and WKWebView (the webviews powering Cordova apps) don't allow the fancy new link preview feature
+of iOS9. If you have a 3D Touch enabled device though, you sometimes are allowed to force press a link and a
+preview pops up (see the screenshot above). If you want to enable this feature, do:
+```js
+  ThreeDeeTouch.enableLinkPreview();
+```
+
+### disableLinkPreview
+To disable the link preview feature again, do:
+```js
+  ThreeDeeTouch.disableLinkPreview();
+```
+
+## 5. License
+
+[The MIT License (MIT)](http://www.opensource.org/licenses/mit-license.html)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

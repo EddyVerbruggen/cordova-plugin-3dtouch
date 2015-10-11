@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <title>3D Touch</title>
+</head>
+<body>
+<div class="app">
+  <h1>3D Touch</h1>
+
+  <div id="deviceready" class="blink">
+    <p class="event listening">Connecting to Device</p>
+
+    <p class="event received">Device is Ready</p>
+    <button onclick="avail()">avail?</button>
+    <br/><br/>
+    <button onclick="enableLinkPreview()">enable link preview</button>
+    <br/><br/>
+    <button onclick="disableLinkPreview()">disable link preview</button>
+    <br/><br/>
+    <button onclick="configureQuickActions()">configure home icons</button>
+    <br/><br/>
+    <a href="https://www.telerik.com">link to telerik.com</a><br/><br/>
+    <a href="checkin.html">link to checkin.html</a>
+  </div>
+</div>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script>
+  function avail() {
+    ThreeDeeTouch.isAvailable(function (avail) {
+      alert("avail? " + avail)
+    });
+  }
+
+  function enableLinkPreview() {
+    ThreeDeeTouch.enableLinkPreview();
+  }
+
+  function disableLinkPreview() {
+    ThreeDeeTouch.disableLinkPreview();
+  }
+
+  function configureQuickActions() {
+    ThreeDeeTouch.configureQuickActions([
+      {
+        type: 'checkin', // optional, but can be used in the onHomeIconPressed callback
+        title: 'Check in', // mandatory
+        subtitle: 'Quickly check in', // optional
+        iconType: 'compose' // optional
+      },
+      {
+        type: 'share',
+        title: 'Share',
+        subtitle: 'Share like you care',
+        iconType: 'share'
+      },
+      {
+        type: 'search',
+        title: 'Search',
+        iconType: 'search'
+      },
+      {
+        title: 'Show favorites',
+        iconTemplate: 'HeartTemplate' // from Assets catalog
+      }
+    ]);
+  }
+
+  // TODO should be in generic spot (index.js) so it will always be triggered, even on warm start from a page deep down in the app
+  document.addEventListener('deviceready', function () {
+    ThreeDeeTouch.onHomeIconPressed = function (payload) {
+      console.log("Icon pressed. Type: " + payload.type + ". Title: " + payload.title + ".");
+      if (payload.type == 'checkin') {
+        document.location = 'checkin.html';
+      } else if (payload.type == 'share') {
+        document.location = 'share.html';
+      } else {
+        console.log(JSON.stringify(payload));
+      }
+    }
+  }, false);
+
+</script>
+</body>
+</html>

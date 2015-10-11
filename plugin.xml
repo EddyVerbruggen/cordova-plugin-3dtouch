@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugin
+    id="cordova-plugin-3dtouch"
+    version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0">
+
+  <name>3D Touch</name>
+
+  <author>Eddy Verbruggen - @EddyVerbruggen</author>
+
+  <description>3DTouch plugin for your Cordova project. Add home shortcut icons which are triggered by 3DTouch-ing them. Supported on iPhone6S an up.</description>
+
+  <keywords>3DTouch, 3D Touch</keywords>
+
+  <license>MIT</license>
+
+  <engines>
+    <engine name="cordova" version=">=3.5.0"/>
+  </engines>
+
+  <js-module name="ThreeDeeTouch" src="www/ThreeDeeTouch.js">
+    <clobbers target="ThreeDeeTouch"/>
+  </js-module>
+
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="ThreeDeeTouch">
+        <param name="ios-package" value="ThreeDeeTouch"/>
+        <param name="onload" value="true"/>
+      </feature>
+      <preference name="deployment-target" value="9.0"/>
+    </config-file>
+
+    <header-file src="src/ios/app/ThreeDeeTouch.h"/>
+    <source-file src="src/ios/app/ThreeDeeTouch.m"/>
+    <header-file src="src/ios/app/AppDelegate+threedeetouch.h"/>
+    <source-file src="src/ios/app/AppDelegate+threedeetouch.m"/>
+  </platform>
+
+</plugin>
