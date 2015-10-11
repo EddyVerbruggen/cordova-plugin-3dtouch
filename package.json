@@ -1,0 +1,34 @@
+{
+  "name": "cordova-plugin-3dtouch",
+  "version": "1.0.0",
+  "description": "Add Quick Actions to your Home Screen which can be triggered by 3D Touch. Also, you can enable Link Preview with this plugin. Supported on iPhone6S an up.",
+  "cordova": {
+    "id": "cordova-plugin-3dtouch",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddyVerbruggen/cordova-plugin-3dtouch.git"
+  },
+  "keywords": [
+    "3DTouch",
+    "3D Touch",
+    "Force Touch",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.5.0"
+    }
+  ],
+  "author": "Eddy Verbruggen <eddyverbruggen@gmail.com> (https://github.com/EddyVerbruggen)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/issues"
+  },
+  "homepage": "https://github.com/EddyVerbruggen/cordova-plugin-3dtouch#readme"
+}

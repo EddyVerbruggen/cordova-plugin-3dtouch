@@ -8,9 +8,9 @@
 
   <author>Eddy Verbruggen - @EddyVerbruggen</author>
 
-  <description>3DTouch plugin for your Cordova project. Add home shortcut icons which are triggered by 3DTouch-ing them. Supported on iPhone6S an up.</description>
+  <description>Add Quick Actions to your Home Screen which can be triggered by 3D Touch. Also, you can enable Link Preview with this plugin. Supported on iPhone6S an up.</description>
 
-  <keywords>3DTouch, 3D Touch</keywords>
+  <keywords>3DTouch, 3D Touch, Force Touch</keywords>
 
   <license>MIT</license>
 
