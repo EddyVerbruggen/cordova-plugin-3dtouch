@@ -7,6 +7,7 @@ by [Eddy Verbruggen](http://twitter.com/eddyverbruggen)
 2. [Screenshots](#2-screenshots)
 3. [Installation](#3-installation)
 4. [Usage](#4-usage)
+5. [Changelog](#5-changelog)
 
 ## 1. Description
 
@@ -128,3 +129,7 @@ To disable the link preview feature again, do:
 ```js
   ThreeDeeTouch.disableLinkPreview();
 ```
+
+## 5. Changelog
+1.0.1 Increased the timeouts a bit, so there is a better chance `onHomeIconPressed` gets called on coldstart. Thanks #1.
+1.0.0 Initial release

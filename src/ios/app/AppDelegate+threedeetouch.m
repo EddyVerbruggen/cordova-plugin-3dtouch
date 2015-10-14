@@ -19,7 +19,7 @@
   if (threeDeeTouch.initDone) {
     [threeDeeTouch.webView stringByEvaluatingJavaScriptFromString:function];
   } else {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 25 * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 100 * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
       [self callJavascriptFunctionWhenAvailable:function];
     });
   }
