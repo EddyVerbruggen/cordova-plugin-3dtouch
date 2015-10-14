@@ -131,5 +131,5 @@ To disable the link preview feature again, do:
 ```
 
 ## 5. Changelog
-* 1.0.1 Increased the timeouts a bit, so there is a better chance `onHomeIconPressed` gets called on coldstart. Thanks [#1](#1).
+* 1.0.1 Increased the timeouts a bit, so there is a better chance `onHomeIconPressed` gets called on coldstart. Thanks [#1](issues/1).
 * 1.0.0 Initial release (untagged)
