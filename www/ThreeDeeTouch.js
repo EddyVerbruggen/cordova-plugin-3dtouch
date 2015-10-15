@@ -20,3 +20,9 @@ ThreeDeeTouch.prototype.configureQuickActions = function (icons, onSuccess, onEr
 };
 
 module.exports = new ThreeDeeTouch();
+
+// call the plugin as soon as deviceready fires, this makes sure the webview is loaded,
+// way more solid than relying on native's pluginInitialize.
+document.addEventListener('deviceready', function() {
+  exec(null, null, "ThreeDeeTouch", "deviceIsReady", []);
+}, false);

@@ -4,6 +4,8 @@
 
 @property BOOL initDone;
 
+- (void) deviceIsReady:(CDVInvokedUrlCommand*)command;
+
 - (void) isAvailable:(CDVInvokedUrlCommand*)command;
 
 - (void) configureQuickActions:(CDVInvokedUrlCommand*)command;

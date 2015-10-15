@@ -131,5 +131,6 @@ To disable the link preview feature again, do:
 ```
 
 ## 5. Changelog
+* 1.1.0 Found a solid way to deal with timing when to call into `onHomeIconPressed`. Should always work now, even on coldstart.
 * 1.0.1 Increased the timeouts a bit, so there is a better chance `onHomeIconPressed` gets called on coldstart. Thanks [#1](https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/issues/1).
 * 1.0.0 Initial release (untagged)
