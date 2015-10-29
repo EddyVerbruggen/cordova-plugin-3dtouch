@@ -66,7 +66,7 @@ There are two types of icons supported currently" `iconType` and `iconTemplate`.
 ##### iconType
 A value from a (case insensitive) fixed list of icons which have been provided by Apple and look great:
 * iOS 9.0: Compose, Play, Pause, Add, Location, Search, Share
-* iOS 9.1: Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update
+* iOS 9.1 added these: Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update
 
 ##### iconTemplate
 Can be used to provide your own icon. It must be a valid name of an icon template in your Assets catalog.
