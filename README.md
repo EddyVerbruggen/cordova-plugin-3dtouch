@@ -61,10 +61,12 @@ When your app starts you can add those fancy Quick Actions to the Home Screen ic
 You can configure up to four icons and they are 'cached' until you pass in a new set of icons.
 So you don't need to do this every time your app loads, but it can't really hurt.
 
-There are two types of icons supported currently" `iconType` and `iconTemplate`. The former is a fixed list
-of 
-Compose/Play/Pause/Add/Location/Search/Share/Prohibit/Contact/Home/MarkLocation/Favorite/Love/Cloud/Invitation/Confirmation/Mail/Message/Date/Time/CapturePhoto/CaptureVideo/Task/TaskCompleted/Alarm/Bookmark/Shuffle/Audio/Update 
-and have been provided by Apple and look great.
+There are two types of icons supported currently" `iconType` and `iconTemplate`. The former is a (case insensitive) fixed list of:
+* iOS 9.0: Compose/Play/Pause/Add/Location/Search/Share
+* iOS 9.1: Prohibit/Contact/Home/MarkLocation/Favorite/Love/Cloud/Invitation/Confirmation/Mail/Message/Date/Time/CapturePhoto/CaptureVideo/Task/TaskCompleted/Alarm/Bookmark/Shuffle/Audio/Update
+
+These have been provided by Apple and look great.
+
 The `iconTemplate` can be used to provide your own icon. It must be a valid name of an icon template in
 your Assets catalog.
 
@@ -133,6 +135,7 @@ To disable the link preview feature again, do:
 ```
 
 ## 5. Changelog
+* 1.2.0 iOS 9.1 added a lot of new iconTypes to choose from. Thanks #2!
 * 1.1.0 Found a solid way to deal with timing when to call into `onHomeIconPressed`. Should always work now, even on coldstart.
 * 1.0.1 Increased the timeouts a bit, so there is a better chance `onHomeIconPressed` gets called on coldstart. Thanks [#1](https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/issues/1).
 * 1.0.0 Initial release (untagged)

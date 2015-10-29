@@ -45,7 +45,7 @@
 
     UIApplicationShortcutIcon *icon = nil;
     if (iconType != nil) {
-      icon = [UIApplicationShortcutIcon iconWithType:[self UIApplicationShortcutIconTypeFromString:iconType]];
+      icon = [UIApplicationShortcutIcon iconWithType:[self UIApplicationShortcutIconTypeFromString:[iconType lowercaseString]]];
     } else if (iconTemplate != nil) {
       icon = [UIApplicationShortcutIcon iconWithTemplateImageName:iconTemplate];
     }
@@ -58,37 +58,43 @@
 }
 
 - (UIApplicationShortcutIconType) UIApplicationShortcutIconTypeFromString:(NSString*)str {
-       if ([str isEqualToString:@"Compose"])  return UIApplicationShortcutIconTypeCompose;
-  else if ([str isEqualToString:@"Play"])     return UIApplicationShortcutIconTypePlay;
-  else if ([str isEqualToString:@"Pause"])    return UIApplicationShortcutIconTypePause;
-  else if ([str isEqualToString:@"Add"])      return UIApplicationShortcutIconTypeAdd;
-  else if ([str isEqualToString:@"Location"]) return UIApplicationShortcutIconTypeLocation;
-  else if ([str isEqualToString:@"Search"])   return UIApplicationShortcutIconTypeSearch;
-  else if ([str isEqualToString:@"Share"])    return UIApplicationShortcutIconTypeShare;
-  else if ([str isEqualToString:@"Prohibit"]) return UIApplicationShortcutIconTypeProhibit;
-  else if ([str isEqualToString:@"Contact"])  return UIApplicationShortcutIconTypeContact;
-  else if ([str isEqualToString:@"Home"])     return UIApplicationShortcutIconTypeHome;
-  else if ([str isEqualToString:@"MarkLocation"])    return UIApplicationShortcutIconTypeMarkLocation;
-  else if ([str isEqualToString:@"Favorite"]) return UIApplicationShortcutIconTypeFavorite;
-  else if ([str isEqualToString:@"Love"])     return UIApplicationShortcutIconTypeLove;
-  else if ([str isEqualToString:@"Cloud"])    return UIApplicationShortcutIconTypeCloud;
-  else if ([str isEqualToString:@"Invitation"])      return UIApplicationShortcutIconTypeInvitation;
-  else if ([str isEqualToString:@"Confirmation"])    return UIApplicationShortcutIconTypeConfirmation;
-  else if ([str isEqualToString:@"Mail"])     return UIApplicationShortcutIconTypeMail;
-  else if ([str isEqualToString:@"Message"])  return UIApplicationShortcutIconTypeMessage;
-  else if ([str isEqualToString:@"Date"])     return UIApplicationShortcutIconTypeDate;
-  else if ([str isEqualToString:@"Time"])     return UIApplicationShortcutIconTypeTime;
-  else if ([str isEqualToString:@"CapturePhoto"])    return UIApplicationShortcutIconTypeCapturePhoto;
-  else if ([str isEqualToString:@"CaptureVideo"])    return UIApplicationShortcutIconTypeCaptureVideo;
-  else if ([str isEqualToString:@"Task"])     return UIApplicationShortcutIconTypeTask;
-  else if ([str isEqualToString:@"TaskCompleted"])   return UIApplicationShortcutIconTypeTaskCompleted;
-  else if ([str isEqualToString:@"Alarm"])    return UIApplicationShortcutIconTypeAlarm;
-  else if ([str isEqualToString:@"Bookmark"]) return UIApplicationShortcutIconTypeBookmark;
-  else if ([str isEqualToString:@"Shuffle"])  return UIApplicationShortcutIconTypeShuffle;
-  else if ([str isEqualToString:@"Audio"])    return UIApplicationShortcutIconTypeAudio;
-  else if ([str isEqualToString:@"Update"])   return UIApplicationShortcutIconTypeUpdate;
+// iOS 9.0 icons:
+       if ([str isEqualToString:@"compose"])       return UIApplicationShortcutIconTypeCompose;
+  else if ([str isEqualToString:@"play"])          return UIApplicationShortcutIconTypePlay;
+  else if ([str isEqualToString:@"pause"])         return UIApplicationShortcutIconTypePause;
+  else if ([str isEqualToString:@"add"])           return UIApplicationShortcutIconTypeAdd;
+  else if ([str isEqualToString:@"location"])      return UIApplicationShortcutIconTypeLocation;
+  else if ([str isEqualToString:@"search"])        return UIApplicationShortcutIconTypeSearch;
+  else if ([str isEqualToString:@"share"])         return UIApplicationShortcutIconTypeShare;
+
+// iOS 9.1 icons:
+#ifdef __IPHONE_9_1
+  else if ([str isEqualToString:@"prohibit"])      return UIApplicationShortcutIconTypeProhibit;
+  else if ([str isEqualToString:@"contact"])       return UIApplicationShortcutIconTypeContact;
+  else if ([str isEqualToString:@"home"])          return UIApplicationShortcutIconTypeHome;
+  else if ([str isEqualToString:@"marklocation"])  return UIApplicationShortcutIconTypeMarkLocation;
+  else if ([str isEqualToString:@"favorite"])      return UIApplicationShortcutIconTypeFavorite;
+  else if ([str isEqualToString:@"love"])          return UIApplicationShortcutIconTypeLove;
+  else if ([str isEqualToString:@"cloud"])         return UIApplicationShortcutIconTypeCloud;
+  else if ([str isEqualToString:@"invitation"])    return UIApplicationShortcutIconTypeInvitation;
+  else if ([str isEqualToString:@"confirmation"])  return UIApplicationShortcutIconTypeConfirmation;
+  else if ([str isEqualToString:@"mail"])          return UIApplicationShortcutIconTypeMail;
+  else if ([str isEqualToString:@"message"])       return UIApplicationShortcutIconTypeMessage;
+  else if ([str isEqualToString:@"date"])          return UIApplicationShortcutIconTypeDate;
+  else if ([str isEqualToString:@"time"])          return UIApplicationShortcutIconTypeTime;
+  else if ([str isEqualToString:@"capturephoto"])  return UIApplicationShortcutIconTypeCapturePhoto;
+  else if ([str isEqualToString:@"capturevideo"])  return UIApplicationShortcutIconTypeCaptureVideo;
+  else if ([str isEqualToString:@"task"])          return UIApplicationShortcutIconTypeTask;
+  else if ([str isEqualToString:@"taskcompleted"]) return UIApplicationShortcutIconTypeTaskCompleted;
+  else if ([str isEqualToString:@"alarm"])         return UIApplicationShortcutIconTypeAlarm;
+  else if ([str isEqualToString:@"bookmark"])      return UIApplicationShortcutIconTypeBookmark;
+  else if ([str isEqualToString:@"shuffle"])       return UIApplicationShortcutIconTypeShuffle;
+  else if ([str isEqualToString:@"audio"])         return UIApplicationShortcutIconTypeAudio;
+  else if ([str isEqualToString:@"update"])        return UIApplicationShortcutIconTypeUpdate;
+#endif
+
   else {
-    NSLog(@"Invalid iconType passed to the 3D Touch plugin.");
+    NSLog(@"Invalid iconType passed to the 3D Touch plugin. So not adding one.");
     return 0;
   }
 }
