@@ -63,12 +63,12 @@ So you don't need to do this every time your app loads, but it can't really hurt
 
 There are two types of icons supported currently" `iconType` and `iconTemplate`.
 
-#### iconType
+##### iconType
 A value from a (case insensitive) fixed list of icons which have been provided by Apple and look great:
 * iOS 9.0: Compose, Play, Pause, Add, Location, Search, Share
 * iOS 9.1: Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update
 
-#### iconTemplate
+##### iconTemplate
 Can be used to provide your own icon. It must be a valid name of an icon template in your Assets catalog.
 
 
