@@ -61,14 +61,16 @@ When your app starts you can add those fancy Quick Actions to the Home Screen ic
 You can configure up to four icons and they are 'cached' until you pass in a new set of icons.
 So you don't need to do this every time your app loads, but it can't really hurt.
 
-There are two types of icons supported currently" `iconType` and `iconTemplate`. The former is a (case insensitive) fixed list of:
-* iOS 9.0: Compose/Play/Pause/Add/Location/Search/Share
-* iOS 9.1: Prohibit/Contact/Home/MarkLocation/Favorite/Love/Cloud/Invitation/Confirmation/Mail/Message/Date/Time/CapturePhoto/CaptureVideo/Task/TaskCompleted/Alarm/Bookmark/Shuffle/Audio/Update
+There are two types of icons supported currently" `iconType` and `iconTemplate`.
 
-These have been provided by Apple and look great.
+#### iconType
+A value from a (case insensitive) fixed list of icons which have been provided by Apple and look great:
+* iOS 9.0: Compose, Play, Pause, Add, Location, Search, Share
+* iOS 9.1: Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update
 
-The `iconTemplate` can be used to provide your own icon. It must be a valid name of an icon template in
-your Assets catalog.
+#### iconTemplate
+Can be used to provide your own icon. It must be a valid name of an icon template in your Assets catalog.
+
 
 The `type` param is the most convenient way to relate the icon to the event you'll receiver when
 the icon was used to launch your app. So make sure it's unique amongst your icons.
