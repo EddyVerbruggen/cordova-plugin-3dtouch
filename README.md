@@ -99,7 +99,6 @@ the icon was used to launch your app. So make sure it's unique amongst your icon
       iconTemplate: 'HeartTemplate' // from Assets catalog
     }
   ]);
-}
 ```
 
 ### onHomeIconPressed
