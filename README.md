@@ -168,7 +168,7 @@ Then add this to the `.plist`:
 	</array>
 ```
 
-### UIApplicationShortcutItemIconFile
+#### UIApplicationShortcutItemIconFile
 The second action uses the built-in `UIApplicationShortcutIconTypeCompose` icon
 (which is the same as the `Compose` icon you'd get when using the `configureQuickActions`),
 but the first one uses a custom icon: `Eye105`. This expects a `Eye.png` file in your app's bundle.
@@ -178,10 +178,10 @@ on retina devices, so go ahead and use a 70x70 or 105x105 icon if you please.
 In Xcode just drag the icon to the `Resources` folder. If you're using Telerik Platform you can
 add it to the `App_Resources/iOS` folder. That's where the `.plist` is stored as well.
 
-### UIApplicationShortcutItemTitle / UIApplicationShortcutItemSubtitle
+#### UIApplicationShortcutItemTitle / UIApplicationShortcutItemSubtitle
 You can guess what those do by looking at the screenshot, right?
 
-### UIApplicationShortcutItemType
+#### UIApplicationShortcutItemType
 This is the same as the `type` param of `configureQuickActions`, so it's what you'll receive in your
 `onHomeIconPressed` as `payload.type`. Just do something cool with that info.
 
