@@ -171,7 +171,7 @@ Then add this anywhere in the `.plist`:
 #### UIApplicationShortcutItemIconFile
 The second action uses the built-in `UIApplicationShortcutIconTypeCompose` icon
 (which is the same as the `Compose` icon you'd get when using the `configureQuickActions`),
-but the first one uses a custom icon: `Eye105`. This expects a `Eye.png` file in your app's bundle.
+but the first one uses a custom icon: `Eye`. This expects a `Eye.png` file in your app's bundle.
 According to Apple's docs this needs to be a single color square 35x35 icon, but that will look pixelated
 on retina devices, so go ahead and use a 70x70 or 105x105 icon if you please.
 
