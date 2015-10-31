@@ -182,6 +182,9 @@ you can add it to the `App_Resources/iOS` folder. That's where the `.plist` is s
 #### UIApplicationShortcutItemTitle / UIApplicationShortcutItemSubtitle
 You can guess what those do by looking at the screenshot, right?
 
+Note that you can localize these by opening Xcode, and adding a `InfoPlist.strings` file to the `Resources` folder.
+Then mark it as Localizable in the Utilities window and add translations for the appropriate languages.
+
 #### UIApplicationShortcutItemType
 This is the same as the `type` param of `configureQuickActions`, so it's what you'll receive in your
 `onHomeIconPressed` as `payload.type`. Just do something cool with that info.
