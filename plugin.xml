@@ -39,6 +39,7 @@
          - In the .plist change f.i. the subtitle 'Awesome subtitle' to a key like 'shortcut.subtitle.view'
            (these keys can be added to the resource files below).
          - Uncomment the relevant sample resource files below (don't forget to add similar files for missing locales).
+         - Browse to src/ios/locales and add/change according to the config below.
     -->
     <!--<resource-file src="src/ios/locales/en.lproj" />-->
     <!--<resource-file src="src/ios/locales/nl.lproj" />-->
