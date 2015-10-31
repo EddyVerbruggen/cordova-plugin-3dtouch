@@ -143,7 +143,7 @@ That's where static icons come in, which need to be configured in your app's `.p
 
 <img src="screenshots/icon-action-2-static.jpg" width="360" height="223"/>
 
-Then add this to the `.plist`:
+Then add this anywhere in the `.plist`:
 ```xml
 	<key>UIApplicationShortcutItems</key>
 	<array>
@@ -175,8 +175,8 @@ but the first one uses a custom icon: `Eye105`. This expects a `Eye.png` file in
 According to Apple's docs this needs to be a single color square 35x35 icon, but that will look pixelated
 on retina devices, so go ahead and use a 70x70 or 105x105 icon if you please.
 
-In Xcode just drag the icon to the `Resources` folder. If you're using Telerik Platform you can
-add it to the `App_Resources/iOS` folder. That's where the `.plist` is stored as well.
+In Xcode just drag the icon to the `Resources` folder. If you're using [Telerik Platform](https://platform.telerik.com)
+you can add it to the `App_Resources/iOS` folder. That's where the `.plist` is stored as well.
 
 #### UIApplicationShortcutItemTitle / UIApplicationShortcutItemSubtitle
 You can guess what those do by looking at the screenshot, right?
