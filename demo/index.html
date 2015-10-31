@@ -72,12 +72,7 @@
         type: 'share',
         title: 'Share',
         subtitle: 'Share like you care',
-        iconType: 'share'
-      },
-      {
-        type: 'search',
-        title: 'Search',
-        iconType: 'Search' // iconType is case insensitive
+        iconType: 'Share' // optional, case insensitive
       },
       {
         title: 'Show favorites',
@@ -95,7 +90,10 @@
       } else if (payload.type == 'share') {
         document.location = 'share.html';
       } else {
-        console.log(JSON.stringify(payload));
+        // wrapping in a timeout, otherwise it collides with the splashscreen
+        setTimeout(function() {
+          alert(JSON.stringify(payload));
+        }, 500);
       }
     }
   }, false);
