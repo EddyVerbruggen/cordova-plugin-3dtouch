@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <plugin
     id="cordova-plugin-3dtouch"
-    version="1.2.1"
+    version="1.2.2"
     xmlns="http://apache.org/cordova/ns/plugins/1.0">
 
   <name>3D Touch</name>
@@ -28,13 +28,21 @@
         <param name="ios-package" value="ThreeDeeTouch"/>
         <param name="onload" value="true"/>
       </feature>
-      <!--<preference name="deployment-target" value="9.0"/>-->
     </config-file>
 
     <header-file src="src/ios/app/ThreeDeeTouch.h"/>
     <source-file src="src/ios/app/ThreeDeeTouch.m"/>
     <header-file src="src/ios/app/AppDelegate+threedeetouch.h"/>
     <source-file src="src/ios/app/AppDelegate+threedeetouch.m"/>
+
+    <!-- These are examples of how to localize your static icons:
+         - In the .plist change f.i. the subtitle 'Awesome subtitle' to a key like 'shortcut.subtitle.view'
+           (these keys can be added to the resource files below).
+         - Uncomment the relevant sample resource files below (don't forget to add similar files for missing locales).
+    -->
+    <!--<resource-file src="src/ios/locales/en.lproj" />-->
+    <!--<resource-file src="src/ios/locales/nl.lproj" />-->
+
   </platform>
 
 </plugin>

@@ -152,7 +152,7 @@ Then add this anywhere in the `.plist`:
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>Eye</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>PlistEye</string>
+			<string>Eye from plist</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>Awesome subtitle</string>
 			<key>UIApplicationShortcutItemType</key>
@@ -183,13 +183,17 @@ you can add it to the `App_Resources/iOS` folder. That's where the `.plist` is s
 You can guess what those do by looking at the screenshot, right?
 
 Note that you can localize these by opening Xcode, and adding a `InfoPlist.strings` file to the `Resources` folder.
-Then mark it as Localizable in the Utilities window and add translations for the appropriate languages.
+Then mark it as Localizable in the Utilities window and add translations for the appropriate languages. [Details here.](https://kb.applingua.com/2011/10/how-to-localize-app-names/)
+
+If you're using Telerik Platform you can manually upload this plugin and tweak the plugin's contents.
+See the commented section in `plugin.xml` about static icon localization.
 
 #### UIApplicationShortcutItemType
 This is the same as the `type` param of `configureQuickActions`, so it's what you'll receive in your
 `onHomeIconPressed` as `payload.type`. Just do something cool with that info.
 
 ## 6. Changelog
+* 1.2.2 Documentation on how to localize the title and subtitle of your static icons.
 * 1.2.1 Documentation on how to add static icons to your app.
 * 1.2.0 iOS 9.1 added a lot of new iconTypes to choose from. Thanks #2!
 * 1.1.0 Found a solid way to deal with timing when to call into `onHomeIconPressed`. Should always work now, even on coldstart.
