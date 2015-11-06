@@ -39,7 +39,7 @@ It adds a global `ThreeDeeTouch` object which you can use to interact with the p
 
 ## 4. Usage
 
-Check the [demo code](demo/index.html) for all the tricks in the book!
+Check the [demo code](demo/index.html) for all the tricks in the book, or read on for some copy-pasteable samples.
 
 Make sure to wait for `deviceready` before using any of these functions.
 
