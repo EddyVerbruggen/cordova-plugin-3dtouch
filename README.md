@@ -62,7 +62,7 @@ When your app starts you can add those fancy Quick Actions to the Home Screen ic
 You can configure up to four icons and they are 'cached' until you pass in a new set of icons.
 So you don't need to do this every time your app loads, but it can't really hurt.
 
-There are two types of icons supported currently" `iconType` and `iconTemplate`.
+There are two types of icons supported currently `iconType` and `iconTemplate`.
 
 ##### iconType
 A value from a (case insensitive) fixed list of icons which have been provided by Apple and look great:
