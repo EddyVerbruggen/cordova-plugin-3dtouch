@@ -21,6 +21,17 @@
   [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void) watchForceTouches:(CDVInvokedUrlCommand*)command {
+  ForceTouchRecognizer* forceTouchRecognizer = [[ForceTouchRecognizer alloc] initWithTarget:self action:nil];
+  forceTouchRecognizer.callbackId = command.callbackId;
+  forceTouchRecognizer.commandDelegate = self.commandDelegate;
+  [self.webView addGestureRecognizer: forceTouchRecognizer];
+  
+  CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_NO_RESULT];
+  pluginResult.keepCallback = [NSNumber numberWithBool:YES];
+  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 - (void) enableLinkPreview:(CDVInvokedUrlCommand *)command {
   self.webView.allowsLinkPreview = YES;
   [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
@@ -99,3 +110,34 @@
   }
 }
 @end
+
+
+@implementation ForceTouchRecognizer
+
+double lastEvent = 0;
+
+- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+  for (UITouch* touch in touches) {
+    CGFloat percentage = (touch.force / touch.maximumPossibleForce) * 100;
+    if (percentage >= 75) {
+      // let's not flood the callback with multiple hits within the same second
+      NSTimeInterval ts = touch.timestamp;
+      int diff = ts - lastEvent;
+      if (diff > 0) {
+        lastEvent = ts;
+        CGPoint coordinates = [touch locationInView:self.view];
+        NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                      [NSString stringWithFormat:@"%d", (int)percentage]   , @"force",
+                                      [NSString stringWithFormat:@"%d", (int)coordinates.x], @"x",
+                                      [NSString stringWithFormat:@"%d", (int)coordinates.y], @"y",
+                                      nil];
+
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
+        pluginResult.keepCallback = [NSNumber numberWithBool:YES];
+        [_commandDelegate sendPluginResult:pluginResult callbackId:_callbackId];
+      }
+    }
+  }
+}
+@end
+

@@ -57,6 +57,21 @@ so you can check at runtime if the user's device is supported.
   });
 ```
 
+### watchForceTouches
+You can get a notification when the user force touches the webview.
+The plugin defines a Force Touch when at least 75% of the maximum force is applied to the screen.
+Your app will receive the x and y coordinates, so you have to figure out which UI element was touched.
+
+Useful for context menu's, zooming in on images, whatnot.
+
+```js
+  ThreeDeeTouch.watchForceTouches(function(result) {
+    console.log("force touch % " + result.force);
+    console.log("force touch x coordinate " + result.x);
+    console.log("force touch y coordinate " + result.y);
+  });
+```
+
 ### configureQuickActions
 When your app starts you can add those fancy Quick Actions to the Home Screen icon.
 You can configure up to four icons and they are 'cached' until you pass in a new set of icons.
@@ -193,6 +208,7 @@ This is the same as the `type` param of `configureQuickActions`, so it's what yo
 `onHomeIconPressed` as `payload.type`. Just do something cool with that info.
 
 ## 6. Changelog
+* 1.3.0 You can now receive notifications when the user applies a 'Force Touch' on the webview.
 * 1.2.2 Documentation on how to localize the title and subtitle of your static icons.
 * 1.2.1 Documentation on how to add static icons to your app.
 * 1.2.0 iOS 9.1 added a lot of new iconTypes to choose from. Thanks #2!

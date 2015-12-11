@@ -7,6 +7,10 @@ ThreeDeeTouch.prototype.isAvailable = function (onSuccess) {
   exec(onSuccess, null, "ThreeDeeTouch", "isAvailable", []);
 };
 
+ThreeDeeTouch.prototype.watchForceTouches = function (onSuccess) {
+  exec(onSuccess, null, "ThreeDeeTouch", "watchForceTouches", []);
+};
+
 ThreeDeeTouch.prototype.enableLinkPreview = function (onSuccess) {
   exec(onSuccess, null, "ThreeDeeTouch", "enableLinkPreview", []);
 };
