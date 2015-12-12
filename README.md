@@ -66,11 +66,16 @@ Useful for context menu's, zooming in on images, whatnot.
 
 ```js
   ThreeDeeTouch.watchForceTouches(function(result) {
-    console.log("force touch % " + result.force);
-    console.log("force touch x coordinate " + result.x);
-    console.log("force touch y coordinate " + result.y);
+    console.log("force touch % " + result.force); // 84
+    console.log("force touch timestamp " + result.timestamp); // 1449908744.706419
+    console.log("force touch x coordinate " + result.x); // 213
+    console.log("force touch y coordinate " + result.y); // 41
   });
 ```
+
+You can also track in JS which was the last element that received an `ontouchstart` event,
+remember the timestamp when that happened and correlate that to the timestamp of the force touch.
+If those are very close to each other you can safely assume the force touch was on that element.
 
 ### configureQuickActions
 When your app starts you can add those fancy Quick Actions to the Home Screen icon.
@@ -208,6 +213,7 @@ This is the same as the `type` param of `configureQuickActions`, so it's what yo
 `onHomeIconPressed` as `payload.type`. Just do something cool with that info.
 
 ## 6. Changelog
+* 1.3.1 Added `timestamp` to the response of `watchForceTouches`.
 * 1.3.0 You can now receive notifications when the user applies a 'Force Touch' on the webview.
 * 1.2.2 Documentation on how to localize the title and subtitle of your static icons.
 * 1.2.1 Documentation on how to add static icons to your app.

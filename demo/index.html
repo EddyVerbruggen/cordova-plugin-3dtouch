@@ -38,6 +38,7 @@
     <p class="event listening">Connecting to Device</p>
     <p class="event received">Device is Ready</p>
     <button onclick="avail()">avail?</button><br/><br/>
+                <button onclick="watchForceTouches()">watchForceTouches</button><br/><br/>
     <button onclick="enableLinkPreview()">enable link preview</button><br/><br/>
     <button onclick="disableLinkPreview()">disable link preview</button><br/><br/>
     <button onclick="configureQuickActions()">configure home icons</button><br/><br/>
@@ -51,6 +52,15 @@
   function avail() {
     ThreeDeeTouch.isAvailable(function(avail) {alert("avail? " + avail)});
   }
+
+          function watchForceTouches() {
+            ThreeDeeTouch.watchForceTouches(function(result) {
+              console.log("force touch % " + result.force); // 84
+              console.log("force touch timestamp " + result.timestamp); // 1449908744.706419
+              console.log("force touch x coordinate " + result.x); // 213
+              console.log("force touch y coordinate " + result.y); // 41
+            });
+          }
 
   function enableLinkPreview() {
     ThreeDeeTouch.enableLinkPreview();
@@ -73,6 +83,11 @@
         title: 'Share',
         subtitle: 'Share like you care',
         iconType: 'Share' // optional, case insensitive
+      },
+      {
+        type: 'search',
+        title: 'Search',
+        iconType: 'Search' // iconType is case insensitive
       },
       {
         title: 'Show favorites',

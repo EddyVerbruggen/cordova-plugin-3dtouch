@@ -130,6 +130,8 @@ double lastEvent = 0;
                                       [NSString stringWithFormat:@"%d", (int)percentage]   , @"force",
                                       [NSString stringWithFormat:@"%d", (int)coordinates.x], @"x",
                                       [NSString stringWithFormat:@"%d", (int)coordinates.y], @"y",
+                                      // no need to use the touch.timestamp really since it's simply 'now'
+                                      [NSString stringWithFormat:@"%f", [[NSDate date] timeIntervalSince1970]], @"timestamp",
                                       nil];
 
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:result];
