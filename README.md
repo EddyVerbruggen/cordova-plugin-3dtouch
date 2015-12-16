@@ -213,6 +213,7 @@ This is the same as the `type` param of `configureQuickActions`, so it's what yo
 `onHomeIconPressed` as `payload.type`. Just do something cool with that info.
 
 ## 6. Changelog
+* 1.3.2 Compatibility with Cordova-iOS 4.
 * 1.3.1 Added `timestamp` to the response of `watchForceTouches`.
 * 1.3.0 You can now receive notifications when the user applies a 'Force Touch' on the webview.
 * 1.2.2 Documentation on how to localize the title and subtitle of your static icons.
