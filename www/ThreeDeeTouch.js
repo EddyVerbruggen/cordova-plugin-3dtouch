@@ -25,8 +25,15 @@ ThreeDeeTouch.prototype.configureQuickActions = function (icons, onSuccess, onEr
 
 module.exports = new ThreeDeeTouch();
 
-// call the plugin as soon as deviceready fires, this makes sure the webview is loaded,
-// way more solid than relying on native's pluginInitialize.
-document.addEventListener('deviceready', function() {
+var remainingAttempts = 50;
+function waitForIt() {
+  if (window.ThreeDeeTouch && typeof window.ThreeDeeTouch.onHomeIconPressed === "function") {
   exec(null, null, "ThreeDeeTouch", "deviceIsReady", []);
-}, false);
+  } else if (remainingAttempts-- > 0) {
+    setTimeout(waitForIt, 100);
+  }
+}
+
+// Call the plugin as soon as deviceready fires, this makes sure the webview is loaded, way more solid than relying on native's pluginInitialize.
+// Still, if the first attempt fails we will re-check for a little while because a fwk like Meteor will only make the function available after a little while.
+document.addEventListener('deviceready', waitForIt, false);
