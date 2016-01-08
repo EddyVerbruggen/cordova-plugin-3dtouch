@@ -213,13 +213,13 @@ This is the same as the `type` param of `configureQuickActions`, so it's what yo
 `onHomeIconPressed` as `payload.type`. Just do something cool with that info.
 
 ## 6. Changelog
-* 1.3.3 Compatibility of 'home icon cold-starts' with [Meteor](https://www.meteor.com), see #4.
+* 1.3.3 Compatibility of 'home icon cold-starts' with [Meteor](https://www.meteor.com), see [#4](https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/issues/4).
 * 1.3.2 Compatibility with Cordova-iOS 4.
 * 1.3.1 Added `timestamp` to the response of `watchForceTouches`.
 * 1.3.0 You can now receive notifications when the user applies a 'Force Touch' on the webview.
 * 1.2.2 Documentation on how to localize the title and subtitle of your static icons.
 * 1.2.1 Documentation on how to add static icons to your app.
-* 1.2.0 iOS 9.1 added a lot of new iconTypes to choose from. Thanks #2!
+* 1.2.0 iOS 9.1 added a lot of new iconTypes to choose from. Thanks [#2](https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/issues/2)!
 * 1.1.0 Found a solid way to deal with timing when to call into `onHomeIconPressed`. Should always work now, even on coldstart.
 * 1.0.1 Increased the timeouts a bit, so there is a better chance `onHomeIconPressed` gets called on coldstart. Thanks [#1](https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/issues/1).
 * 1.0.0 Initial release (untagged)
