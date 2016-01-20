@@ -25,10 +25,10 @@ ThreeDeeTouch.prototype.configureQuickActions = function (icons, onSuccess, onEr
 
 module.exports = new ThreeDeeTouch();
 
-var remainingAttempts = 50;
+var remainingAttempts = 150;
 function waitForIt() {
   if (window.ThreeDeeTouch && typeof window.ThreeDeeTouch.onHomeIconPressed === "function") {
-  exec(null, null, "ThreeDeeTouch", "deviceIsReady", []);
+    exec(null, null, "ThreeDeeTouch", "deviceIsReady", []);
   } else if (remainingAttempts-- > 0) {
     setTimeout(waitForIt, 100);
   }
