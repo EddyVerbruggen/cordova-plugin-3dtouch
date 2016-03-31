@@ -18,11 +18,13 @@
   ThreeDeeTouch *threeDeeTouch = [self.viewController getCommandInstance:@"ThreeDeeTouch"];
   if (threeDeeTouch.initDone) {
     if ([threeDeeTouch.webView respondsToSelector:@selector(stringByEvaluatingJavaScriptFromString:)]) {
-      // Cordova-iOS pre-4
+      // UIWebView
       [threeDeeTouch.webView performSelectorOnMainThread:@selector(stringByEvaluatingJavaScriptFromString:) withObject:function waitUntilDone:NO];
-    } else {
-      // Cordova-iOS 4+
+    } else if ([threeDeeTouch.webView respondsToSelector:@selector(evaluateJavaScript:completionHandler:)]) {
+      // WKWebView
       [threeDeeTouch.webView performSelector:@selector(evaluateJavaScript:completionHandler:) withObject:function withObject:nil];
+    } else {
+      NSLog(@"No compatible method found to communicate 3D Touch callback to the webview. Please notify the plugin author.");
     }
   } else {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 25 * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
