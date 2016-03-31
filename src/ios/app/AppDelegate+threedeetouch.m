@@ -22,7 +22,7 @@
       [threeDeeTouch.webView performSelectorOnMainThread:@selector(stringByEvaluatingJavaScriptFromString:) withObject:function waitUntilDone:NO];
     } else {
       // Cordova-iOS 4+
-      [threeDeeTouch.webView performSelectorOnMainThread:@selector(evaluateJavaScript:completionHandler:) withObject:function waitUntilDone:NO];
+      [threeDeeTouch.webView performSelector:@selector(evaluateJavaScript:completionHandler:) withObject:function withObject:nil];
     }
   } else {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 25 * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
