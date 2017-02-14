@@ -8,7 +8,7 @@
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void(^)(BOOL succeeded))completionHandler {
 
   NSString* jsFunction = @"ThreeDeeTouch.onHomeIconPressed";
-  NSString *params = [NSString stringWithFormat:@"{'type':'%@', 'title': '%@'}", shortcutItem.type, shortcutItem.localizedTitle];
+  NSString *params = [NSString stringWithFormat:@"{'type':'%@', 'title': '%@', 'subtitle': '%@'}", shortcutItem.type, shortcutItem.localizedTitle, shortcutItem.localizedSubtitle];
   NSString* result = [NSString stringWithFormat:@"%@(%@)", jsFunction, params];
   [self callJavascriptFunctionWhenAvailable:result];
 }
