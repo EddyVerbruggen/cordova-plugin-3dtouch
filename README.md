@@ -89,7 +89,7 @@ A value from a (case insensitive) fixed list of icons which have been provided b
 * iOS 9.0: Compose, Play, Pause, Add, Location, Search, Share
 * iOS 9.1 added these: Prohibit, Contact, Home, MarkLocation, Favorite, Love, Cloud, Invitation, Confirmation, Mail, Message, Date, Time, CapturePhoto, CaptureVideo, Task, TaskCompleted, Alarm, Bookmark, Shuffle, Audio, Update
 
-Preview icons in Apple's gallery [here](https://developer.apple.com/ios/human-interface-guidelines/graphics/system-icons/#quick-action-icons)
+Preview icons in Apple's gallery [here](https://developer.apple.com/ios/human-interface-guidelines/icons-and-images/system-icons/#home-screen-quick-action-icons)
 
 ##### iconTemplate
 Can be used to provide your own icon. It must be a valid name of an icon template in your Assets catalog.
