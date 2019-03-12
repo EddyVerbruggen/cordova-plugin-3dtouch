@@ -1,7 +1,6 @@
 #import "AppDelegate+threedeetouch.h"
 #import "ThreeDeeTouch.h"
 #import <objc/runtime.h>
-#import "MainViewController.h"
 
 @implementation AppDelegate (threedeetouch)
 
