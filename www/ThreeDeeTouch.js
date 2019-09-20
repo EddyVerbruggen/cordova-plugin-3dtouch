@@ -23,11 +23,13 @@ ThreeDeeTouch.prototype.configureQuickActions = function (icons, onSuccess, onEr
   exec(onSuccess, onError, "ThreeDeeTouch", "configureQuickActions", [icons]);
 };
 
+ThreeDeeTouch.prototype.onHomeIconPressed = function(){};
+
 module.exports = new ThreeDeeTouch();
 
 var remainingAttempts = 150;
 function waitForIt() {
-  if (window.ThreeDeeTouch && typeof window.ThreeDeeTouch.onHomeIconPressed === "function") {
+  if (window.ThreeDeeTouch && typeof window.ThreeDeeTouch.onHomeIconPressed !== ThreeDeeTouch.prototype.onHomeIconPressed) {
     exec(null, null, "ThreeDeeTouch", "deviceIsReady", []);
   } else if (remainingAttempts-- > 0) {
     setTimeout(waitForIt, 100);
