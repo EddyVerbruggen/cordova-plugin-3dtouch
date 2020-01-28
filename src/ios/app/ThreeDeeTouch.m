@@ -33,18 +33,22 @@
 }
 
 - (void) enableLinkPreview:(CDVInvokedUrlCommand *)command {
+#if !WK_WEB_VIEW_ONLY
     if ([self.webView class] == [UIWebView class]) {
         UIWebView *w = (UIWebView*)self.webView;
         w.allowsLinkPreview = YES;
     }
+#endif
     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
 }
 
 - (void) disableLinkPreview:(CDVInvokedUrlCommand *)command {
+#if !WK_WEB_VIEW_ONLY
     if ([self.webView class] == [UIWebView class]) {
         UIWebView *w = (UIWebView*)self.webView;
         w.allowsLinkPreview = NO;
     }
+#endif
     [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK] callbackId:command.callbackId];
 }
 
