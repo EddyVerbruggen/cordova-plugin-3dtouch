@@ -167,6 +167,7 @@ That's where static icons come in, which need to be configured in your app's `.p
 <img src="screenshots/icon-action-2-static.jpg" width="360" height="223"/>
 
 Then add this anywhere in the `.plist`:
+
 ```xml
 	<key>UIApplicationShortcutItems</key>
 	<array>
@@ -215,6 +216,7 @@ This is the same as the `type` param of `configureQuickActions`, so it's what yo
 `onHomeIconPressed` as `payload.type`. Just do something cool with that info.
 
 ## 6. Changelog
+* 1.3.8 Support WKWebViewOnly build settings, thanks [#45](https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/pull/45)!
 * 1.3.7 Ionic 4 compat, thanks [#43](https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/issues/43)!
 * 1.3.6 Get back the subtitle when a home icon was pressed, thanks [#27](https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/issues/27)!
 * 1.3.5 Home icons are now WKWebView compatible. Previously your app would crash. See [#12](https://github.com/EddyVerbruggen/cordova-plugin-3dtouch/issues/12).
